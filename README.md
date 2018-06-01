@@ -1,7 +1,7 @@
 # MethdSwizzling
 runtime的应用
 
-```
+```objective-c
 
 +(void)load{
     //保证交换方法只执行一次
