@@ -1,4 +1,4 @@
-# MethdSwizzling
+# MethdSwizzling与IMP指针
 runtime的应用
 
 ### 解释
@@ -14,7 +14,7 @@ runtime的应用
 Method Swizzling就是改变类的调度表让消息解析时从一个选择器对应到另外一个的实现，同时将原始的方法实现混淆到一个新的选择器。
 
 ```
-
+MethdSwizzling实现
 ---------
 ```objective-c
 
@@ -40,3 +40,31 @@ Method Swizzling就是改变类的调度表让消息解析时从一个选择器�
 
 
 ```
+
+### 其实，还有一种更加简单的方法可以让我们办到相同的目的，运用IMP指针，IMP就是Implementation的缩写，顾名思义，它是指向一个方法实现的指针，每一个方法都有一个对应的IMP，所以，我们可以直接调用方法的IMP指针，来避免方法调用死循环的问题。
+```objective-c
+
+//需要把工程的BuidSettings里面的Enable Strict Checking of objec_msgSend Calls 改为NO
+//引入runtime库也可以使用 @import ObjectiveC;
++(void)load{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken
+    , ^{
+    //获取原始方法
+    Method viewDidLoad=class_getInstanceMethod(self, @selector(viewDidLoad));
+    //获取方法实现
+    _VIMP viewDidLoad_IMP =(_VIMP)method_getImplementation(viewDidLoad);
+    //重新设置方法实现
+    method_setImplementation(viewDidLoad, imp_implementationWithBlock(^(id target ,SEL action){
+      //调用原有的实现方法
+      viewDidLoad_IMP(target,@selector(viewDidLoad));
+      //新增打印实现部分
+      NSLog(@"%@,哈哈，David,我加载完了",target);
+    }));
+    });
+}
+
+
+
+```
+
