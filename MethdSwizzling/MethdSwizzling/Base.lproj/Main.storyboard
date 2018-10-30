@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,11 +13,69 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOu-pe-3VP">
+                                <rect key="frame" x="15" y="207" width="86.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5E3-bq-8Nq"/>
+                                </constraints>
+                                <state key="normal" title="修改属性"/>
+                                <connections>
+                                    <action selector="changeVary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SEj-q6-aWd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yS9-mz-rmK">
+                                <rect key="frame" x="101.5" y="207" width="86" height="50"/>
+                                <state key="normal" title="添加方法"/>
+                                <connections>
+                                    <action selector="addMethod:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u23-e4-zx8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSM-oS-qyu">
+                                <rect key="frame" x="187.5" y="207" width="86.5" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="增加分类变量"/>
+                                <connections>
+                                    <action selector="addExMethod:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zWy-Ms-bIF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYd-v9-lMR">
+                                <rect key="frame" x="274" y="207" width="86" height="50"/>
+                                <state key="normal" title="交换方法"/>
+                                <connections>
+                                    <action selector="exchangMethod:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MXA-e4-LQM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPe-H9-t8E">
+                                <rect key="frame" x="143" y="120" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dSM-oS-qyu" firstAttribute="height" secondItem="yOu-pe-3VP" secondAttribute="height" id="8Tr-tV-6Dm"/>
+                            <constraint firstItem="jYd-v9-lMR" firstAttribute="centerY" secondItem="yOu-pe-3VP" secondAttribute="centerY" id="Je6-sA-3f4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hPe-H9-t8E" secondAttribute="trailing" symbolic="YES" id="Nns-Bp-fGo"/>
+                            <constraint firstItem="yS9-mz-rmK" firstAttribute="height" secondItem="yOu-pe-3VP" secondAttribute="height" id="OVy-XE-Pxc"/>
+                            <constraint firstItem="jYd-v9-lMR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="187" id="TSb-fC-fnc"/>
+                            <constraint firstItem="jYd-v9-lMR" firstAttribute="width" secondItem="yOu-pe-3VP" secondAttribute="width" id="Xvd-2s-178"/>
+                            <constraint firstItem="dSM-oS-qyu" firstAttribute="width" secondItem="yOu-pe-3VP" secondAttribute="width" id="ZOl-t3-Znu"/>
+                            <constraint firstItem="hPe-H9-t8E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="bHj-X8-LMf"/>
+                            <constraint firstItem="yOu-pe-3VP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="e9d-Gq-i27"/>
+                            <constraint firstItem="dSM-oS-qyu" firstAttribute="leading" secondItem="yS9-mz-rmK" secondAttribute="trailing" id="ec0-Ng-NbZ"/>
+                            <constraint firstItem="yS9-mz-rmK" firstAttribute="leading" secondItem="yOu-pe-3VP" secondAttribute="trailing" id="ef2-l6-Cpn"/>
+                            <constraint firstItem="dSM-oS-qyu" firstAttribute="centerY" secondItem="yOu-pe-3VP" secondAttribute="centerY" id="fVN-cI-xvg"/>
+                            <constraint firstItem="yS9-mz-rmK" firstAttribute="top" secondItem="hPe-H9-t8E" secondAttribute="bottom" constant="57" id="mv3-XP-Crz"/>
+                            <constraint firstItem="yS9-mz-rmK" firstAttribute="width" secondItem="yOu-pe-3VP" secondAttribute="width" id="nG7-a4-AJx"/>
+                            <constraint firstItem="yS9-mz-rmK" firstAttribute="centerY" secondItem="yOu-pe-3VP" secondAttribute="centerY" id="nSn-zP-TMq"/>
+                            <constraint firstItem="jYd-v9-lMR" firstAttribute="leading" secondItem="dSM-oS-qyu" secondAttribute="trailing" id="pFx-h5-RTj"/>
+                            <constraint firstItem="jYd-v9-lMR" firstAttribute="height" secondItem="yOu-pe-3VP" secondAttribute="height" id="sa0-Xk-D8p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jYd-v9-lMR" secondAttribute="trailing" constant="15" id="zcf-vF-iZV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
